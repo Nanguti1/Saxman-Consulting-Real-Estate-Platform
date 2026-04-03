@@ -113,7 +113,7 @@ const Footer = () => {
           transition={{ delay: 0.3 }}
         >
           <p className="text-white/60 text-sm">
-            © 2024 Saxman Consulting. All rights reserved.
+            © {new Date().getFullYear()} Saxman Consulting. All rights reserved.
           </p>
         </motion.div>
       </div>

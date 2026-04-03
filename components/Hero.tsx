@@ -143,40 +143,20 @@ const Hero = () => {
               />
               
               {/* Main Image Container */}
-              <div className="relative glass rounded-2xl p-8 border border-white/10 overflow-hidden">
-                <div className="relative h-96 flex items-center justify-center">
-                  {/* Placeholder for the person/image */}
-                  <div className="w-full h-full bg-gradient-to-br from-blue-600/10 to-green-500/10 rounded-xl flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="w-32 h-32 bg-gradient-to-br from-blue-500/20 to-green-500/20 rounded-full mx-auto mb-4 flex items-center justify-center">
-                        <div className="text-6xl">🏠</div>
-                      </div>
-                      <p className="text-blue-300/60 text-sm">Property Visualization</p>
-                    </div>
-                  </div>
-                  
-                  {/* Floating Elements */}
-                  <motion.div
-                    className="absolute top-10 right-10 w-16 h-16 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20"
-                    animate={{
-                      y: [0, -10, 0],
-                    }}
-                    transition={{
-                      duration: 3,
-                      repeat: Infinity,
-                      ease: "easeInOut"
-                    }}
+              <div className="relative glass rounded-2xl overflow-hidden border border-white/10">
+                <div className="relative h-96">
+                  {/* Background Image */}
+                  <img 
+                    src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80"
+                    alt="Luxury Property"
+                    className="w-full h-full object-cover"
                   />
-                  <motion.div
-                    className="absolute bottom-10 left-10 w-12 h-12 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20"
-                    animate={{
-                      y: [0, -10, 0],
-                    }}
-                    transition={{
-                      duration: 3,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                      delay: 1
+                  
+                  {/* Overlay for better text readability */}
+                  <div 
+                    className="absolute inset-0"
+                    style={{
+                      background: 'linear-gradient(135deg, rgba(3,11,26,0.4) 0%, rgba(3,11,26,0.2) 50%, rgba(3,11,26,0.4) 100%)'
                     }}
                   />
                 </div>

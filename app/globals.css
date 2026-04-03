@@ -62,7 +62,9 @@ section {
 #about,
 #contact,
 #why,
-#cta {
+#cta,
+#properties,
+#stats {
   min-height: auto;
 }
 

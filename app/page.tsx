@@ -59,7 +59,7 @@ export default function Home() {
         <Hero />
         
         {/* Stats Section */}
-        <section className="px-6 py-6" style={{ paddingTop: '1.5rem', paddingBottom: '0.5rem' }}>
+        <section id="stats" className="px-6 py-6" style={{ paddingTop: '8.5rem', paddingBottom: '8.5rem' }}>
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-4 gap-px glass border border-white/10 rounded-2xl overflow-hidden">
               <div className="glass p-6 text-center transition-colors duration-250 hover:bg-white/8">
