@@ -4,6 +4,8 @@ import "./globals.css";
 import Providers from "@/components/Providers";
 import ReactQueryProvider from "@/components/ReactQueryProvider";
 import CursorGlow from "@/components/CursorGlow";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 const syne = Syne({
   variable: "--font-syne",
@@ -26,8 +28,12 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col bg-black text-white">
         <Providers>
           <ReactQueryProvider>
+            <Header />
+            <main className="flex-1">
+              {children}
+            </main>
+            <Footer />
             <CursorGlow />
-            {children}
           </ReactQueryProvider>
         </Providers>
       </body>

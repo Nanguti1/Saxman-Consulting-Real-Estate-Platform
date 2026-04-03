@@ -64,7 +64,8 @@ section {
 #why,
 #cta,
 #properties,
-#stats {
+#stats,
+#properties-filters {
   min-height: auto;
 }
 

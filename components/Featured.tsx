@@ -3,6 +3,7 @@
 import { Property } from '@/types';
 import PropertyCard from './PropertyCard';
 import { motion, Variants } from 'framer-motion';
+import { ArrowRight } from 'lucide-react';
 
 interface FeaturedProps {
   properties: Property[];
@@ -72,6 +73,28 @@ const Featured = ({ properties, onPropertyClick }: FeaturedProps) => {
               index={index}
             />
           ))}
+        </motion.div>
+
+        {/* CTA Button */}
+        <motion.div
+          className="text-center mt-12"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.6 }}
+        >
+          <motion.button
+            onClick={() => window.location.href = '/properties'}
+            className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-blue-600 to-green-500 text-white rounded-xl font-medium hover:shadow-lg transition-all duration-300 group"
+            whileHover={{ 
+              y: -2,
+              boxShadow: "0 8px 30px rgba(37,99,235,0.4), 0 0 20px rgba(16,185,129,0.2)"
+            }}
+            whileTap={{ scale: 0.98 }}
+          >
+            Browse Properties
+            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+          </motion.button>
         </motion.div>
 
         {/* Floating Elements */}
