@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 
 const CursorGlow = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -36,14 +36,14 @@ const CursorGlow = () => {
     };
   }, []);
 
-  const variants = {
+  const variants: Variants = {
     default: {
       x: mousePosition.x - 16,
       y: mousePosition.y - 16,
       scale: 1,
       opacity: 0.6,
       transition: {
-        type: 'spring',
+        type: 'spring' as const,
         mass: 0.2,
         stiffness: 100,
         damping: 25,
@@ -55,7 +55,7 @@ const CursorGlow = () => {
       scale: 1.5,
       opacity: 0.8,
       transition: {
-        type: 'spring',
+        type: 'spring' as const,
         mass: 0.2,
         stiffness: 100,
         damping: 25,
@@ -103,7 +103,7 @@ const CursorGlow = () => {
           x: mousePosition.x - 8,
           y: mousePosition.y - 8,
           transition: {
-            type: 'spring',
+            type: 'spring' as const,
             mass: 0.5,
             stiffness: 50,
             damping: 20,
