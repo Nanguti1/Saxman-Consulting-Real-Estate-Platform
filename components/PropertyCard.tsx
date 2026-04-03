@@ -65,11 +65,12 @@ const PropertyCard = ({ property, onClick, index }: PropertyCardProps) => {
         <div className="relative">
           {/* Image Container */}
           <div className="relative h-48 overflow-hidden">
-            <div className="w-full h-full bg-gradient-to-br from-blue-600/20 to-green-500/10 flex items-center justify-center">
-              <div className="text-white/10 text-6xl font-bold">
-                {property.type.charAt(0).toUpperCase()}
-              </div>
-            </div>
+            <img 
+              src={property.image}
+              alt={property.title}
+              className="w-full h-full object-cover"
+              loading="lazy"
+            />
             
             {/* Overlay */}
             <div 

@@ -4,7 +4,7 @@ export interface Property {
   location: string;
   price: number;
   image: string;
-  type: 'apartment' | 'house' | 'villa' | 'penthouse';
+  type: 'apartment' | 'house' | 'villa' | 'penthouse' | 'townhouse' | 'estate';
   bedrooms: number;
   bathrooms: number;
   area: number;
