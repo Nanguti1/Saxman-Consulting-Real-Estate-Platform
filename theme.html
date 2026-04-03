@@ -1,0 +1,1444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Saxman Consulting – Find Your Future Home in Kenya</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --blue-950: #030b1a;
+    --blue-900: #061530;
+    --blue-800: #0a2352;
+    --blue-700: #0f3580;
+    --blue-600: #1a4db3;
+    --blue-500: #2563eb;
+    --blue-400: #60a5fa;
+    --blue-300: #93c5fd;
+    --green-500: #10b981;
+    --green-400: #34d399;
+    --green-300: #6ee7b7;
+    --green-200: #a7f3d0;
+    --glass-bg: rgba(255,255,255,0.04);
+    --glass-border: rgba(255,255,255,0.10);
+    --glass-hover: rgba(255,255,255,0.08);
+    --text-primary: #f0f6ff;
+    --text-secondary: rgba(200,220,255,0.75);
+    --text-muted: rgba(150,185,220,0.55);
+    --grad-hero: linear-gradient(135deg, #030b1a 0%, #061b3a 40%, #082040 70%, #061a30 100%);
+    --grad-accent: linear-gradient(135deg, #1a4db3 0%, #10b981 100%);
+    --grad-card: linear-gradient(160deg, rgba(26,77,179,0.12) 0%, rgba(16,185,129,0.06) 100%);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--blue-950);
+    color: var(--text-primary);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ─── SCROLLBAR ─── */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--blue-900); }
+  ::-webkit-scrollbar-thumb { background: var(--blue-600); border-radius: 3px; }
+
+  /* ─── HEADER / NAV ─── */
+  #navbar {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 1.25rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.4s ease;
+  }
+
+  #navbar.scrolled {
+    background: rgba(3,11,26,0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--glass-border);
+    padding: 0.9rem 2rem;
+  }
+
+  .nav-logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 1.3rem;
+    letter-spacing: -0.02em;
+    background: linear-gradient(135deg, #60a5fa, #34d399);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    transition: color 0.25s;
+    position: relative;
+  }
+
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px; left: 0; right: 0;
+    height: 1px;
+    background: var(--grad-accent);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+    transform-origin: left;
+  }
+
+  .nav-links a:hover { color: var(--text-primary); }
+  .nav-links a:hover::after { transform: scaleX(1); }
+
+  .nav-cta {
+    background: linear-gradient(135deg, var(--blue-600), var(--green-500));
+    color: #fff;
+    border: none;
+    padding: 0.6rem 1.4rem;
+    border-radius: 100px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    letter-spacing: 0.01em;
+  }
+
+  .nav-cta:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 0 24px rgba(37,99,235,0.5), 0 0 40px rgba(16,185,129,0.2);
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 4px;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 24px; height: 2px;
+    background: var(--text-primary);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(3,11,26,0.97);
+    backdrop-filter: blur(20px);
+    z-index: 99;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2.5rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.35s ease;
+  }
+
+  .mobile-menu.open {
+    display: flex;
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .mobile-menu a {
+    font-family: 'Syne', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .mobile-menu a:hover { color: var(--green-400); }
+
+  /* ─── HERO ─── */
+  #hero {
+    min-height: 100vh;
+    background: var(--grad-hero);
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 8rem 2rem 5rem;
+    overflow: hidden;
+  }
+
+  .hero-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    pointer-events: none;
+  }
+
+  .hero-orb-1 {
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(37,99,235,0.25), transparent 70%);
+    top: -150px; right: -100px;
+    animation: pulse 8s ease-in-out infinite;
+  }
+
+  .hero-orb-2 {
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(16,185,129,0.2), transparent 70%);
+    bottom: -50px; left: -80px;
+    animation: pulse 10s ease-in-out infinite reverse;
+  }
+
+  .hero-orb-3 {
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(96,165,250,0.15), transparent 70%);
+    top: 40%; left: 35%;
+    animation: float 12s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 0.8; }
+    50% { transform: scale(1.15); opacity: 1; }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-40px); }
+  }
+
+  .hero-grid-overlay {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(37,99,235,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(37,99,235,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black, transparent);
+    -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black, transparent);
+  }
+
+  .hero-inner {
+    position: relative;
+    max-width: 760px;
+    z-index: 2;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: heroEnter 1s cubic-bezier(0.22, 1, 0.36, 1) 0.2s forwards;
+  }
+
+  @keyframes heroEnter {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    padding: 0.4rem 1rem;
+    border-radius: 100px;
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: var(--green-300);
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .badge-dot {
+    width: 6px; height: 6px;
+    background: var(--green-400);
+    border-radius: 50%;
+    animation: blink 2s ease-in-out infinite;
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+
+  .hero-title {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(2.6rem, 6vw, 4.5rem);
+    font-weight: 800;
+    line-height: 1.08;
+    letter-spacing: -0.03em;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-title span {
+    background: linear-gradient(135deg, #60a5fa 0%, #34d399 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-sub {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    font-weight: 300;
+    max-width: 520px;
+    margin-bottom: 2.5rem;
+    line-height: 1.7;
+  }
+
+  .hero-search {
+    display: flex;
+    gap: 0;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    padding: 6px;
+    backdrop-filter: blur(10px);
+    flex-wrap: wrap;
+  }
+
+  .search-field {
+    flex: 1;
+    min-width: 140px;
+    display: flex;
+    flex-direction: column;
+    padding: 0.6rem 1rem;
+    border-right: 1px solid var(--glass-border);
+    position: relative;
+  }
+
+  .search-field:last-of-type { border-right: none; }
+
+  .search-label {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 0.2rem;
+  }
+
+  .search-input, .search-select {
+    background: none;
+    border: none;
+    outline: none;
+    color: var(--text-primary);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 400;
+    width: 100%;
+    cursor: pointer;
+  }
+
+  .search-select option { background: var(--blue-800); color: var(--text-primary); }
+
+  .hero-search-btn {
+    background: linear-gradient(135deg, var(--blue-600), var(--green-500));
+    color: #fff;
+    border: none;
+    padding: 0.7rem 1.8rem;
+    border-radius: 12px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    margin: 0 0 0 4px;
+    align-self: stretch;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .hero-search-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 30px rgba(37,99,235,0.4), 0 0 20px rgba(16,185,129,0.2);
+  }
+
+  /* ─── SECTION HEADERS ─── */
+  .section { padding: 6rem 2rem; }
+  .section-inner { max-width: 1200px; margin: 0 auto; }
+
+  .section-label {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--green-400);
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .section-label::before {
+    content: '';
+    display: inline-block;
+    width: 20px; height: 1px;
+    background: var(--green-400);
+  }
+
+  .section-title {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+    margin-bottom: 1rem;
+  }
+
+  .section-title span {
+    background: linear-gradient(135deg, #60a5fa, #34d399);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .section-sub {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    font-weight: 300;
+    max-width: 500px;
+    margin-bottom: 3rem;
+    line-height: 1.7;
+  }
+
+  /* ─── PROPERTIES SECTION ─── */
+  #properties { background: linear-gradient(180deg, var(--blue-950) 0%, #050d1f 100%); }
+
+  .properties-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+
+  .property-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .property-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    cursor: pointer;
+    position: relative;
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  .property-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .property-card:hover {
+    transform: translateY(-6px) scale(1.01);
+    border-color: rgba(96,165,250,0.3);
+    box-shadow:
+      0 20px 60px rgba(0,0,0,0.4),
+      0 0 0 1px rgba(96,165,250,0.15),
+      inset 0 1px 0 rgba(255,255,255,0.08);
+  }
+
+  .property-card:hover .card-glow { opacity: 1; }
+
+  .card-glow {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at top, rgba(37,99,235,0.06), transparent 60%);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.4s;
+  }
+
+  .card-img-wrap {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+  }
+
+  .card-img-wrap img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .property-card:hover .card-img-wrap img { transform: scale(1.05); }
+
+  .card-img-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, transparent 40%, rgba(3,11,26,0.8) 100%);
+  }
+
+  .card-badge {
+    position: absolute;
+    top: 12px; left: 12px;
+    background: linear-gradient(135deg, var(--blue-600), var(--green-500));
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 100px;
+  }
+
+  .card-fav {
+    position: absolute;
+    top: 12px; right: 12px;
+    width: 32px; height: 32px;
+    background: rgba(3,11,26,0.6);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(8px);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .card-fav:hover { background: rgba(239,68,68,0.2); border-color: rgba(239,68,68,0.4); }
+
+  .card-body { padding: 1.25rem 1.25rem 1.5rem; }
+
+  .card-price {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.35rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #60a5fa, #34d399);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.3rem;
+  }
+
+  .card-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.4rem;
+    line-height: 1.3;
+  }
+
+  .card-location {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    margin-bottom: 0.75rem;
+  }
+
+  .location-icon {
+    width: 12px; height: 12px;
+    background: var(--green-400);
+    border-radius: 50% 50% 50% 0;
+    transform: rotate(-45deg);
+    flex-shrink: 0;
+  }
+
+  .card-desc {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    font-weight: 300;
+    line-height: 1.55;
+    margin-bottom: 1rem;
+  }
+
+  .card-meta {
+    display: flex;
+    gap: 1rem;
+    padding-top: 0.85rem;
+    border-top: 1px solid var(--glass-border);
+  }
+
+  .card-meta-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+  }
+
+  .card-meta-item strong { color: var(--text-secondary); font-weight: 500; }
+
+  /* ─── WHY CHOOSE US ─── */
+  #why {
+    background: linear-gradient(135deg, #050d1f 0%, #061530 50%, #06181a 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  #why::before {
+    content: '';
+    position: absolute;
+    width: 700px; height: 700px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(16,185,129,0.07), transparent 65%);
+    right: -200px; top: -150px;
+    pointer-events: none;
+  }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .why-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 2rem 1.75rem;
+    transition: all 0.35s ease;
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  .why-card.visible { opacity: 1; transform: translateY(0); }
+
+  .why-card:hover {
+    border-color: rgba(52,211,153,0.25);
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.06);
+  }
+
+  .why-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--grad-accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+  }
+
+  .why-card:hover::after { transform: scaleX(1); }
+
+  .why-icon-wrap {
+    width: 52px; height: 52px;
+    background: linear-gradient(135deg, rgba(37,99,235,0.15), rgba(16,185,129,0.1));
+    border: 1px solid rgba(96,165,250,0.2);
+    border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.4rem;
+    margin-bottom: 1.25rem;
+    transition: all 0.3s;
+  }
+
+  .why-card:hover .why-icon-wrap {
+    background: linear-gradient(135deg, rgba(37,99,235,0.25), rgba(16,185,129,0.2));
+    box-shadow: 0 0 20px rgba(37,99,235,0.25);
+  }
+
+  .why-card-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+  }
+
+  .why-card-text {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    font-weight: 300;
+    line-height: 1.65;
+  }
+
+  .why-number {
+    position: absolute;
+    top: 1.5rem; right: 1.75rem;
+    font-family: 'Syne', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: rgba(96,165,250,0.06);
+    line-height: 1;
+  }
+
+  /* ─── CTA ─── */
+  #cta {
+    padding: 6rem 2rem;
+    background: var(--blue-950);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-inner {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  .cta-inner.visible { opacity: 1; transform: translateY(0); transition: all 0.8s cubic-bezier(0.22,1,0.36,1); }
+
+  .cta-bg-glow {
+    position: absolute;
+    width: 600px; height: 300px;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(ellipse, rgba(37,99,235,0.18) 0%, rgba(16,185,129,0.1) 40%, transparent 70%);
+    filter: blur(30px);
+    pointer-events: none;
+  }
+
+  .cta-box {
+    background: var(--glass-bg);
+    border: 1px solid rgba(96,165,250,0.2);
+    border-radius: 28px;
+    padding: 4rem 3rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-box::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(37,99,235,0.06), rgba(16,185,129,0.04));
+    pointer-events: none;
+  }
+
+  .cta-title {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+    margin-bottom: 1rem;
+  }
+
+  .cta-title span {
+    background: linear-gradient(135deg, #60a5fa, #34d399);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .cta-text {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    font-weight: 300;
+    margin-bottom: 2rem;
+    line-height: 1.7;
+  }
+
+  .cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, var(--blue-600), var(--green-500));
+    color: #fff;
+    border: none;
+    padding: 0.9rem 2.2rem;
+    border-radius: 100px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.35s ease;
+    letter-spacing: 0.01em;
+    text-decoration: none;
+  }
+
+  .cta-btn:hover {
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 10px 40px rgba(37,99,235,0.5), 0 0 30px rgba(16,185,129,0.25);
+  }
+
+  .btn-arrow {
+    width: 20px; height: 20px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px;
+    transition: transform 0.25s;
+  }
+
+  .cta-btn:hover .btn-arrow { transform: translateX(3px); }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: linear-gradient(180deg, var(--blue-950) 0%, #020812 100%);
+    border-top: 1px solid var(--glass-border);
+    padding: 4rem 2rem 2rem;
+  }
+
+  .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .footer-top {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.5fr;
+    gap: 3rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid var(--glass-border);
+    margin-bottom: 2rem;
+  }
+
+  .footer-brand p {
+    color: var(--text-muted);
+    font-size: 0.875rem;
+    font-weight: 300;
+    line-height: 1.65;
+    margin-top: 0.75rem;
+    max-width: 260px;
+  }
+
+  .footer-col h4 {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+  }
+
+  .footer-col ul { list-style: none; }
+
+  .footer-col ul li {
+    margin-bottom: 0.6rem;
+  }
+
+  .footer-col ul li a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 300;
+    transition: color 0.2s;
+  }
+
+  .footer-col ul li a:hover { color: var(--green-300); }
+
+  .footer-contact p {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    font-weight: 300;
+    margin-bottom: 0.6rem;
+  }
+
+  .footer-contact .contact-icon {
+    font-size: 14px;
+    margin-top: 1px;
+    flex-shrink: 0;
+  }
+
+  .social-icons {
+    display: flex;
+    gap: 10px;
+    margin-top: 1.25rem;
+  }
+
+  .social-icon {
+    width: 36px; height: 36px;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.25s;
+    text-decoration: none;
+    color: var(--text-muted);
+  }
+
+  .social-icon:hover {
+    background: linear-gradient(135deg, rgba(37,99,235,0.2), rgba(16,185,129,0.15));
+    border-color: rgba(96,165,250,0.3);
+    color: var(--text-primary);
+    transform: translateY(-2px);
+  }
+
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .footer-copy {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    font-weight: 300;
+  }
+
+  .footer-bottom-links {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .footer-bottom-links a {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-weight: 300;
+    transition: color 0.2s;
+  }
+
+  .footer-bottom-links a:hover { color: var(--green-300); }
+
+  /* ─── STATS BAR ─── */
+  .stats-bar {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--glass-border);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 6rem;
+  }
+
+  .stat-item {
+    background: var(--glass-bg);
+    padding: 1.5rem 2rem;
+    text-align: center;
+    transition: background 0.25s;
+  }
+
+  .stat-item:hover { background: var(--glass-hover); }
+
+  .stat-number {
+    font-family: 'Syne', sans-serif;
+    font-size: 2rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #60a5fa, #34d399);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: block;
+  }
+
+  .stat-label {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    font-weight: 300;
+    letter-spacing: 0.04em;
+    margin-top: 0.2rem;
+    display: block;
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 900px) {
+    .nav-links, .nav-cta { display: none; }
+    .hamburger { display: flex; }
+    .footer-top { grid-template-columns: 1fr 1fr; }
+    .stats-bar { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 600px) {
+    .hero-search { flex-direction: column; }
+    .search-field { border-right: none; border-bottom: 1px solid var(--glass-border); }
+    .search-field:last-of-type { border-bottom: none; }
+    .hero-search-btn { margin: 4px 0 0 0; width: 100%; justify-content: center; }
+    .footer-top { grid-template-columns: 1fr; gap: 2rem; }
+    .cta-box { padding: 2.5rem 1.5rem; }
+    .property-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ─── VIEW ALL BUTTON ─── */
+  .view-all-btn {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    color: var(--text-secondary);
+    padding: 0.6rem 1.4rem;
+    border-radius: 100px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 400;
+    cursor: pointer;
+    transition: all 0.3s;
+    white-space: nowrap;
+  }
+
+  .view-all-btn:hover {
+    border-color: rgba(96,165,250,0.4);
+    color: var(--text-primary);
+    background: var(--glass-hover);
+  }
+</style>
+</head>
+<body>
+
+<!-- ─── NAVBAR ─── -->
+<nav id="navbar">
+  <div class="nav-logo">Saxman Consulting</div>
+  <ul class="nav-links">
+    <li><a href="#hero">Home</a></li>
+    <li><a href="#properties">Properties</a></li>
+    <li><a href="#why">About</a></li>
+    <li><a href="#cta">Contact</a></li>
+  </ul>
+  <button class="nav-cta" onclick="document.getElementById('properties').scrollIntoView({behavior:'smooth'})">Browse Properties</button>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- ─── MOBILE MENU ─── -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#hero" onclick="toggleMenu()">Home</a>
+  <a href="#properties" onclick="toggleMenu()">Properties</a>
+  <a href="#why" onclick="toggleMenu()">About</a>
+  <a href="#cta" onclick="toggleMenu()">Contact</a>
+  <button class="nav-cta" onclick="toggleMenu(); document.getElementById('properties').scrollIntoView({behavior:'smooth'})">Browse Properties</button>
+</div>
+
+<!-- ─── HERO ─── -->
+<section id="hero">
+  <div class="hero-orb hero-orb-1"></div>
+  <div class="hero-orb hero-orb-2"></div>
+  <div class="hero-orb hero-orb-3"></div>
+  <div class="hero-grid-overlay"></div>
+  <div class="hero-inner">
+    <div class="hero-badge">
+      <span class="badge-dot"></span>
+      Kenya's Premier Real Estate Platform
+    </div>
+    <h1 class="hero-title">
+      Find Your<br>
+      <span>Future Home</span><br>
+      in Kenya
+    </h1>
+    <p class="hero-sub">Discover curated premium properties across Nairobi, Mombasa, Kisumu and beyond — verified listings, trusted agents, exceptional living.</p>
+    <div class="hero-search">
+      <div class="search-field">
+        <span class="search-label">Location</span>
+        <input class="search-input" type="text" placeholder="Nairobi, Westlands..." />
+      </div>
+      <div class="search-field">
+        <span class="search-label">Property Type</span>
+        <select class="search-select">
+          <option>Any Type</option>
+          <option>Apartment</option>
+          <option>Villa</option>
+          <option>Townhouse</option>
+          <option>Land</option>
+          <option>Commercial</option>
+        </select>
+      </div>
+      <div class="search-field">
+        <span class="search-label">Price Range</span>
+        <select class="search-select">
+          <option>Any Budget</option>
+          <option>Under KES 5M</option>
+          <option>KES 5M – 15M</option>
+          <option>KES 15M – 40M</option>
+          <option>KES 40M+</option>
+        </select>
+      </div>
+      <button class="hero-search-btn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        Search
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ─── STATS ─── -->
+<section class="section" style="padding-top: 4rem; padding-bottom: 0;">
+  <div class="section-inner">
+    <div class="stats-bar">
+      <div class="stat-item">
+        <span class="stat-number">1,200+</span>
+        <span class="stat-label">Active Listings</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">850+</span>
+        <span class="stat-label">Happy Clients</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">47</span>
+        <span class="stat-label">Cities Covered</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">12 Yrs</span>
+        <span class="stat-label">Of Excellence</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FEATURED PROPERTIES ─── -->
+<section id="properties" class="section">
+  <div class="section-inner">
+    <div class="properties-header">
+      <div>
+        <p class="section-label">Featured Listings</p>
+        <h2 class="section-title">Premium Properties<br><span>Across Kenya</span></h2>
+        <p class="section-sub">Handpicked residences with verified ownership, transparent pricing, and expert guidance.</p>
+      </div>
+      <button class="view-all-btn">View All Properties →</button>
+    </div>
+    <div class="property-grid" id="propertyGrid"></div>
+  </div>
+</section>
+
+<!-- ─── WHY CHOOSE US ─── -->
+<section id="why" class="section">
+  <div class="section-inner">
+    <div style="text-align:center; max-width:560px; margin: 0 auto 3rem;">
+      <p class="section-label" style="justify-content:center;">Why Saxman</p>
+      <h2 class="section-title">Built on Trust,<br><span>Driven by Excellence</span></h2>
+      <p class="section-sub" style="max-width:100%;">We combine local expertise with modern technology to deliver a property experience unlike any other.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card" data-animate>
+        <span class="why-number">01</span>
+        <div class="why-icon-wrap">🏆</div>
+        <h3 class="why-card-title">Trusted Agents</h3>
+        <p class="why-card-text">Our agents are rigorously vetted, fully licensed, and trained to navigate Kenya's real estate market with precision and integrity.</p>
+      </div>
+      <div class="why-card" data-animate>
+        <span class="why-number">02</span>
+        <div class="why-icon-wrap">💎</div>
+        <h3 class="why-card-title">Premium Listings</h3>
+        <p class="why-card-text">Every property on our platform meets our quality standard — no inflated prices, no hidden surprises, only genuine premium homes.</p>
+      </div>
+      <div class="why-card" data-animate>
+        <span class="why-number">03</span>
+        <div class="why-icon-wrap">✅</div>
+        <h3 class="why-card-title">Verified Properties</h3>
+        <p class="why-card-text">All listings are independently verified against land registry records, ensuring clean title deeds and peaceful ownership.</p>
+      </div>
+      <div class="why-card" data-animate>
+        <span class="why-number">04</span>
+        <div class="why-icon-wrap">🌍</div>
+        <h3 class="why-card-title">Local Expertise</h3>
+        <p class="why-card-text">12 years navigating Nairobi, Mombasa, Kisumu and the wider Kenyan market. We know every neighbourhood, regulation, and opportunity.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CTA ─── -->
+<section id="cta">
+  <div class="cta-bg-glow"></div>
+  <div class="cta-inner" id="ctaInner">
+    <div class="cta-box">
+      <p class="section-label" style="justify-content:center; margin-bottom:0.75rem;">Take The Next Step</p>
+      <h2 class="cta-title">Ready to Find Your<br><span>Dream Property?</span></h2>
+      <p class="cta-text">Let our expert team guide you through every step — from search to keys in hand. Your future home is waiting.</p>
+      <a href="#properties" class="cta-btn">
+        Get Started
+        <span class="btn-arrow">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="nav-logo" style="font-size:1.2rem;">Saxman Consulting</div>
+        <p>Kenya's most trusted real estate consultancy — connecting people with properties that match their lives, aspirations, and budgets.</p>
+        <div class="social-icons">
+          <a class="social-icon" href="#" title="Twitter">𝕏</a>
+          <a class="social-icon" href="#" title="Instagram">📷</a>
+          <a class="social-icon" href="#" title="LinkedIn">in</a>
+          <a class="social-icon" href="#" title="Facebook">f</a>
+          <a class="social-icon" href="#" title="YouTube">▶</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#properties">Properties</a></li>
+          <li><a href="#why">About Us</a></li>
+          <li><a href="#cta">Contact</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Careers</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Property Types</h4>
+        <ul>
+          <li><a href="#">Apartments</a></li>
+          <li><a href="#">Villas</a></li>
+          <li><a href="#">Townhouses</a></li>
+          <li><a href="#">Land Parcels</a></li>
+          <li><a href="#">Commercial</a></li>
+          <li><a href="#">Off-Plan</a></li>
+        </ul>
+      </div>
+      <div class="footer-col footer-contact">
+        <h4>Contact Us</h4>
+        <p><span class="contact-icon">📍</span> Upper Hill, Nairobi, Kenya</p>
+        <p><span class="contact-icon">📞</span> +254 700 123 456</p>
+        <p><span class="contact-icon">✉️</span> hello@saxmanconsulting.co.ke</p>
+        <p><span class="contact-icon">🕐</span> Mon–Sat: 8am – 6pm EAT</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2025 Saxman Consulting Ltd. All rights reserved. Registered in Kenya.</p>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Cookie Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ─── MOCK PROPERTY DATA ───
+const properties = [
+  {
+    id: 1,
+    title: "Infinity Sky Penthouse",
+    location: "Westlands, Nairobi",
+    price: "KES 48,000,000",
+    type: "Penthouse",
+    beds: 4, baths: 4, sqft: 3200,
+    desc: "Panoramic city views from a sky-high luxury penthouse with private rooftop terrace and smart home automation.",
+    image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&q=80",
+    badge: "For Sale"
+  },
+  {
+    id: 2,
+    title: "Karen Forest Villa",
+    location: "Karen, Nairobi",
+    price: "KES 35,500,000",
+    type: "Villa",
+    beds: 5, baths: 4, sqft: 4800,
+    desc: "Serene 0.75-acre walled compound with lush garden, swimming pool and staff quarters in prestigious Karen.",
+    image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600&q=80",
+    badge: "For Sale"
+  },
+  {
+    id: 3,
+    title: "Kilimani City Apartments",
+    location: "Kilimani, Nairobi",
+    price: "KES 12,800,000",
+    type: "Apartment",
+    beds: 3, baths: 2, sqft: 1450,
+    desc: "Modern 3-bedroom apartment with open-plan living, designer kitchen and breathtaking Ngong Hills views.",
+    image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=600&q=80",
+    badge: "New"
+  },
+  {
+    id: 4,
+    title: "Nyali Beachfront Retreat",
+    location: "Nyali, Mombasa",
+    price: "KES 55,000,000",
+    type: "Villa",
+    beds: 6, baths: 5, sqft: 5500,
+    desc: "Unrivalled Indian Ocean frontage — a six-bedroom luxury villa with direct beach access and infinity pool.",
+    image: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=600&q=80",
+    badge: "Premium"
+  },
+  {
+    id: 5,
+    title: "Lavington Garden Townhouse",
+    location: "Lavington, Nairobi",
+    price: "KES 22,000,000",
+    type: "Townhouse",
+    beds: 4, baths: 3, sqft: 2800,
+    desc: "Elegant townhouse in a boutique gated development with communal pool, gym and secure parking.",
+    image: "https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?w=600&q=80",
+    badge: "For Sale"
+  },
+  {
+    id: 6,
+    title: "Runda Diplomatic Estate",
+    location: "Runda, Nairobi",
+    price: "KES 78,000,000",
+    type: "Estate",
+    beds: 7, baths: 6, sqft: 7200,
+    desc: "Grand diplomatic-grade estate on 2 acres with guest wing, fully equipped home office suite and staff cottage.",
+    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80",
+    badge: "Exclusive"
+  },
+  {
+    id: 7,
+    title: "Kisumu Lakeside Condo",
+    location: "Milimani, Kisumu",
+    price: "KES 8,500,000",
+    type: "Apartment",
+    beds: 2, baths: 2, sqft: 1050,
+    desc: "Contemporary Lake Victoria-view condo with balcony perfect for sundowners, in a secure low-density complex.",
+    image: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&q=80",
+    badge: "For Sale"
+  },
+  {
+    id: 8,
+    title: "Syokimau Smart Homes",
+    location: "Syokimau, Machakos",
+    price: "KES 7,200,000",
+    type: "Townhouse",
+    beds: 3, baths: 2, sqft: 1600,
+    desc: "Affordable luxury townhouse with IoT smart controls, solar panels and only 8 minutes from JKIA.",
+    image: "https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=600&q=80",
+    badge: "Off-Plan"
+  },
+  {
+    id: 9,
+    title: "Muthangari Penthouse Suite",
+    location: "Muthangari, Nairobi",
+    price: "KES 29,000,000",
+    type: "Penthouse",
+    beds: 3, baths: 3, sqft: 2600,
+    desc: "Dual-aspect penthouse with private wrap-around terrace, bespoke Italian finishes and 24/7 concierge service.",
+    image: "https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=600&q=80",
+    badge: "For Rent"
+  },
+  {
+    id: 10,
+    title: "Gigiri Diplomatic Zone Home",
+    location: "Gigiri, Nairobi",
+    price: "KES 42,000,000",
+    type: "Villa",
+    beds: 5, baths: 4, sqft: 4200,
+    desc: "Sought-after family home within walking distance of UN complex, top international schools and boutique shopping.",
+    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80",
+    badge: "For Sale"
+  },
+  {
+    id: 11,
+    title: "Nakuru Great Rift View",
+    location: "Milimani, Nakuru",
+    price: "KES 14,500,000",
+    type: "Villa",
+    beds: 4, baths: 3, sqft: 3000,
+    desc: "Architecturally designed home perched above Nakuru town with sweeping Great Rift Valley panoramas.",
+    image: "https://images.unsplash.com/photo-1600047509358-9dc75507daeb?w=600&q=80",
+    badge: "For Sale"
+  },
+  {
+    id: 12,
+    title: "Diani Coastal Paradise",
+    location: "Diani Beach, Kwale",
+    price: "KES 18,000,000",
+    type: "Villa",
+    beds: 3, baths: 3, sqft: 2200,
+    desc: "Sun-drenched beachside villa with makuti thatched roof, private courtyard plunge pool and lush tropical garden.",
+    image: "https://images.unsplash.com/photo-1602941525421-8f8b81d3edbb?w=600&q=80",
+    badge: "Holiday Home"
+  }
+];
+
+// ─── RENDER CARDS ───
+function renderCards() {
+  const grid = document.getElementById('propertyGrid');
+  grid.innerHTML = properties.map((p, i) => `
+    <div class="property-card" style="transition-delay: ${i * 0.07}s">
+      <div class="card-glow"></div>
+      <div class="card-img-wrap">
+        <img src="${p.image}" alt="${p.title}" loading="lazy" />
+        <div class="card-img-overlay"></div>
+        <span class="card-badge">${p.badge}</span>
+        <div class="card-fav">♡</div>
+      </div>
+      <div class="card-body">
+        <div class="card-price">${p.price}</div>
+        <h3 class="card-title">${p.title}</h3>
+        <div class="card-location">
+          <span class="location-icon"></span>
+          ${p.location}
+        </div>
+        <p class="card-desc">${p.desc}</p>
+        <div class="card-meta">
+          <span class="card-meta-item">🛏 <strong>${p.beds}</strong> beds</span>
+          <span class="card-meta-item">🚿 <strong>${p.baths}</strong> baths</span>
+          <span class="card-meta-item">📐 <strong>${p.sqft.toLocaleString()}</strong> sqft</span>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+// ─── NAVBAR SCROLL ───
+window.addEventListener('scroll', () => {
+  const nav = document.getElementById('navbar');
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+});
+
+// ─── MOBILE MENU ───
+function toggleMenu() {
+  const menu = document.getElementById('mobileMenu');
+  const ham = document.getElementById('hamburger');
+  menu.classList.toggle('open');
+  ham.classList.toggle('open');
+}
+
+// ─── INTERSECTION OBSERVER (scroll animations) ───
+function setupAnimations() {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.property-card, .why-card').forEach(el => observer.observe(el));
+
+  // CTA
+  const ctaObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.2 });
+  ctaObserver.observe(document.getElementById('ctaInner'));
+}
+
+// ─── INIT ───
+renderCards();
+setupAnimations();
+</script>
+</body>
+</html>
