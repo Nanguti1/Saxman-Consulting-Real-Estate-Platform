@@ -24,7 +24,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${syne.variable} h-full antialiased dark`}>
+    <html lang="en" className={`${syne.variable} h-full antialiased dark`} data-scroll-behavior="smooth">
       <body className="min-h-full flex flex-col bg-black text-white">
         <Providers>
           <ReactQueryProvider>

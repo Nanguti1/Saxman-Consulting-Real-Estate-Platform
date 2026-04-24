@@ -7,15 +7,15 @@ const Footer = () => {
   const footerLinks = [
     {
       title: 'Quick Links',
-      links: ['Home', 'Properties', 'About Us', 'Contact', 'Blog']
+      links: ['Home', 'Properties', 'About Us', 'Contact']
     },
     {
       title: 'Services',
-      links: ['Property Sales', 'Property Management', 'Investment Advisory', 'Market Analysis']
+      links: ['Property Sales', 'Property Management', 'Land Investment', 'Leasing']
     },
     {
       title: 'Locations',
-      links: ['Nairobi', 'Mombasa', 'Kisumu', 'Eldoret', 'Nakuru']
+      links: ['Kileleshwa', 'Lavington', 'Kilimani', 'Westlands', 'Riverside']
     }
   ];
 
@@ -48,16 +48,23 @@ const Footer = () => {
             <div className="space-y-3">
               <div className="flex items-center gap-3 text-white/80">
                 <Phone className="w-4 h-4 text-blue-400" />
-                <span>+254 700 123 456</span>
+                <span>+254 722 177343</span>
               </div>
               <div className="flex items-center gap-3 text-white/80">
                 <Mail className="w-4 h-4 text-blue-400" />
-                <span>info@saxman.co.ke</span>
+                <span>info@saxmanconsulting.co.ke</span>
               </div>
               <div className="flex items-center gap-3 text-white/80">
                 <MapPin className="w-4 h-4 text-blue-400" />
-                <span>Westlands, Nairobi, Kenya</span>
+                <span>104 Riverside Dr, Nairobi, Kenya</span>
               </div>
+            </div>
+
+            {/* Office Hours */}
+            <div className="mt-4 text-white/60 text-sm">
+              <p className="font-semibold text-white/80 mb-1">Office Hours:</p>
+              <p>Mon–Fri: 7:30 AM – 6:30 PM</p>
+              <p>Sat: 9:00 AM – 2:00 PM</p>
             </div>
 
             {/* Social Links */}

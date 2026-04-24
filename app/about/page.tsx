@@ -156,13 +156,13 @@ const AboutPage = () => {
                 </span>
               </h2>
               <p className="text-blue-200 leading-relaxed mb-6">
-                Founded in 2012, Saxman Consulting emerged from a vision to transform Kenya's real estate landscape. What began as a small team of passionate professionals has grown into one of the country's most respected real estate consultancies.
+                Saxman Consulting is a premier real estate agency in Nairobi, Kenya, specializing in high-end residential and commercial real estate. We provide full-range real estate services including property sales, rentals, land investment, leasing, and property management. Our expertise covers Nairobi's most prestigious suburbs including Kileleshwa, Lavington, Kilimani, Westlands, and Riverside.
               </p>
               <p className="text-blue-200 leading-relaxed mb-6">
-                Over the past decade, we've facilitated over 1,200 successful property transactions, helping families find their dream homes and investors identify lucrative opportunities. Our deep understanding of the local market, combined with international best practices, sets us apart in the industry.
+                Our property portfolio ranges from apartments starting at 10M KSH for sale to high-end rentals up to 780K KSH. We are committed to delivering exceptional property solutions with integrity, expertise, and unwavering dedication to client success.
               </p>
               <p className="text-blue-200 leading-relaxed">
-                Today, we continue to push boundaries, embracing technology and innovation while maintaining the personal touch that has become our trademark.
+                Located at 104 Riverside Dr, Nairobi, we serve clients with professional excellence, ensuring that every property transaction is handled with the utmost care and attention to detail.
               </p>
             </motion.div>
             

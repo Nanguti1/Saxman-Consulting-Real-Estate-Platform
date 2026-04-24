@@ -65,7 +65,9 @@ section {
 #cta,
 #properties,
 #stats,
-#properties-filters {
+#properties-filters,
+footer,
+main {
   min-height: auto;
 }
 

@@ -44,25 +44,25 @@ const ContactPage = () => {
     {
       icon: Phone,
       title: 'Phone',
-      details: ['+254 700 123 456', '+254 712 987 654'],
+      details: ['+254 722 177343'],
       action: 'Call us'
     },
     {
       icon: Mail,
       title: 'Email',
-      details: ['info@saxman.co.ke', 'support@saxman.co.ke'],
+      details: ['info@saxmanconsulting.co.ke'],
       action: 'Send email'
     },
     {
       icon: MapPin,
       title: 'Office',
-      details: ['Westlands, Nairobi', 'Kenya'],
+      details: ['104 Riverside Dr, Nairobi', 'Kenya'],
       action: 'Get directions'
     },
     {
       icon: Clock,
       title: 'Office Hours',
-      details: ['Mon - Fri: 8:00 AM - 6:00 PM', 'Sat: 9:00 AM - 4:00 PM'],
+      details: ['Mon - Fri: 7:30 AM - 6:30 PM', 'Sat: 9:00 AM - 2:00 PM'],
       action: 'Schedule visit'
     }
   ];
