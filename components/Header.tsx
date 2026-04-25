@@ -12,10 +12,17 @@ const Header = () => {
   const { theme, setTheme } = useTheme();
 
   useEffect(() => {
+    let ticking = false;
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 60);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setIsScrolled(window.scrollY > 60);
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -31,19 +38,19 @@ const Header = () => {
       {/* Desktop Header */}
       <motion.header
         id="navbar"
-        className={`fixed top-0 left-0 right-0 z-50 px-8 py-5 flex items-center justify-between transition-all duration-400 ${
-          isScrolled ? 'bg-blue-950/85 backdrop-blur-xl border-b border-white/10 py-3.5' : 'bg-transparent'
+        className={`fixed top-0 left-0 right-0 z-50 px-4 md:px-8 py-4 md:py-5 flex items-center justify-between transition-all duration-300 ${
+          isScrolled ? 'bg-blue-950/85 backdrop-blur-xl border-b border-white/10 py-3 md:py-3.5' : 'bg-transparent'
         }`}
         initial={{ y: -100 }}
         animate={{ y: 0 }}
-        transition={{ duration: 0.6, ease: 'easeOut' }}
+        transition={{ duration: 0.4, ease: 'easeOut' }}
       >
         {/* Logo */}
-        <Link href="/" className="font-bold">
+        <Link href="/" className="font-bold flex-shrink-0">
           <motion.div
             style={{
               fontFamily: 'Syne, sans-serif',
-              fontSize: '1.3rem',
+              fontSize: 'clamp(1rem, 4vw, 1.3rem)',
               letterSpacing: '-0.02em',
               background: 'linear-gradient(135deg, #60a5fa, #34d399)',
               WebkitBackgroundClip: 'text',
@@ -54,24 +61,24 @@ const Header = () => {
               userSelect: 'none',
             }}
             whileHover={{ scale: 1.05 }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.2 }}
           >
             Saxman Consulting
           </motion.div>
         </Link>
 
         {/* Desktop Navigation */}
-        <ul className="hidden md:flex items-center gap-10 list-none">
+        <ul className="hidden md:flex items-center gap-6 lg:gap-10 list-none">
           {navItems.map((item, index) => (
             <motion.li
               key={item.name}
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1, duration: 0.5 }}
+              transition={{ delay: index * 0.05, duration: 0.3 }}
             >
               <Link
                 href={item.href}
-                className="relative text-blue-200/75 text-sm font-normal tracking-wide transition-colors duration-250 hover:text-blue-100"
+                className="relative text-blue-200/75 text-sm font-normal tracking-wide transition-colors duration-200 hover:text-blue-100 whitespace-nowrap"
                 style={{
                   letterSpacing: '0.02em',
                 }}
@@ -87,8 +94,8 @@ const Header = () => {
           
           {/* CTA Button */}
           <motion.button
-            onClick={() => document.getElementById('properties')?.scrollIntoView({ behavior: 'smooth' })}
-            className="bg-gradient-to-r from-blue-600 to-green-500 text-white border-none px-5.5 py-1.5 rounded-full font-medium text-sm cursor-pointer transition-all duration-300"
+            onClick={() => window.location.href = '/properties'}
+            className="bg-gradient-to-r from-blue-600 to-green-500 text-white border-none px-4 md:px-5.5 py-1.5 rounded-full font-medium text-sm cursor-pointer transition-all duration-300 whitespace-nowrap flex-shrink-0"
             style={{
               fontFamily: 'DM Sans, sans-serif',
               letterSpacing: '0.01em',
@@ -97,7 +104,7 @@ const Header = () => {
               y: -1,
               boxShadow: "0 0 24px rgba(37,99,235,0.5), 0 0 40px rgba(16,185,129,0.2)"
             }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.2 }}
           >
             Browse Properties
           </motion.button>
@@ -131,28 +138,28 @@ const Header = () => {
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            className="fixed inset-0 z-40 bg-blue-950/97 backdrop-blur-xl flex flex-col items-center justify-center gap-10"
+            className="fixed inset-0 z-40 bg-blue-950/97 backdrop-blur-xl flex flex-col items-center justify-center gap-8"
             initial={{ opacity: 0, pointerEvents: 'none' }}
             animate={{ opacity: 1, pointerEvents: 'all' }}
             exit={{ opacity: 0, pointerEvents: 'none' }}
-            transition={{ duration: 0.35, ease: 'easeInOut' }}
+            transition={{ duration: 0.2, ease: 'easeInOut' }}
             onClick={() => setIsMobileMenuOpen(false)}
           >
             <motion.div
-              className="flex flex-col items-center gap-10"
-              initial={{ scale: 0.8, opacity: 0 }}
+              className="flex flex-col items-center gap-8"
+              initial={{ scale: 0.95, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.8, opacity: 0 }}
-              transition={{ duration: 0.3, ease: 'easeInOut' }}
+              exit={{ scale: 0.95, opacity: 0 }}
+              transition={{ duration: 0.2 }}
               onClick={(e) => e.stopPropagation()}
             >
               {navItems.map((item) => (
                 <motion.div
                   key={item.name}
-                  initial={{ scale: 0.8, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  exit={{ scale: 0.8, opacity: 0 }}
-                  transition={{ duration: 0.3, ease: 'easeInOut' }}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 10 }}
+                  transition={{ duration: 0.2 }}
                   onClick={(e) => e.stopPropagation()}
                 >
                   <Link
@@ -171,7 +178,7 @@ const Header = () => {
               <motion.button
                 onClick={() => {
                   setIsMobileMenuOpen(false);
-                  document.getElementById('properties')?.scrollIntoView({ behavior: 'smooth' });
+                  window.location.href = '/properties';
                 }}
                 className="bg-gradient-to-r from-blue-600 to-green-500 text-white border-none px-5.5 py-1.5 rounded-full font-medium text-sm cursor-pointer transition-all duration-300"
                 style={{
@@ -182,7 +189,7 @@ const Header = () => {
                   y: -1,
                   boxShadow: "0 0 24px rgba(37,99,235,0.5), 0 0 40px rgba(16,185,129,0.2)"
                 }}
-                transition={{ duration: 0.3 }}
+                transition={{ duration: 0.2 }}
               >
                 Browse Properties
               </motion.button>
