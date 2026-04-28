@@ -53,21 +53,41 @@ const PropertiesPage = () => {
       {/* Hero Section */}
       <section
         id="properties"
-        className="border-b border-slate-200 bg-cover bg-center px-6"
-        style={{
-          backgroundImage:
-            "linear-gradient(rgba(255, 255, 255, 0.88), rgba(239, 246, 255, 0.88)), url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1920&q=80')"
-        }}
+        className="relative py-16 px-6 overflow-hidden min-h-[300px]"
       >
-        <div className="mx-auto flex h-[140px] max-w-screen-2xl items-end pb-7">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <img 
+            src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1920&q=80"
+            alt="Properties Background"
+            className="w-full h-full object-cover"
+          />
+          {/* Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-900/85 to-emerald-900/85" />
+        </div>
+        
+        <div className="relative max-w-7xl mx-auto min-h-[300px] flex items-center justify-center text-center">
           <motion.h1
-            className="text-2xl md:text-3xl font-bold text-slate-900"
+            className="text-4xl md:text-5xl font-bold mb-4 tracking-tight"
             style={{ fontFamily: 'Syne, sans-serif' }}
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
           >
-            Property Portfolio
+            <span className="text-white">
+              Exclusive
+              <span className="block text-3xl md:text-4xl mt-2 font-light text-blue-200">
+                Property Portfolio
+              </span>
+            </span>
           </motion.h1>
+          <motion.p
+            className="text-lg text-blue-100/90 max-w-xl mx-auto leading-relaxed"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+          >
+            Curated luxury residences and investment opportunities in Kenya's most prestigious locations
+          </motion.p>
         </div>
       </section>
 
