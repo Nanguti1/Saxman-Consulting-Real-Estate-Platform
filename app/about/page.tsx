@@ -117,7 +117,7 @@ const AboutPage = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="px-6 py-12">
+      <section id="stats" className="px-6 py-12">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {stats.map((stat, index) => (
@@ -142,7 +142,7 @@ const AboutPage = () => {
       </section>
 
       {/* About Content */}
-      <section className="px-6 py-12">
+      <section id="about-content" className="px-6 py-12">
         <div className="max-w-7xl mx-auto">
           <div className="glass border border-white/10 rounded-2xl p-8 md:p-10 backdrop-blur-xl space-y-8">
             <motion.div
@@ -204,7 +204,7 @@ const AboutPage = () => {
       </section>
 
       {/* Our Values */}
-      <section className="px-6 py-16">
+      <section id="values" className="px-6 py-16">
         <div className="max-w-7xl mx-auto">
           <motion.div
             className="text-center mb-12"
@@ -245,7 +245,7 @@ const AboutPage = () => {
       </section>
 
       {/* Team Section */}
-      <section className="px-6 py-16">
+      <section id="team" className="px-6 py-16">
         <div className="max-w-7xl mx-auto">
           <motion.div
             className="text-center mb-12"

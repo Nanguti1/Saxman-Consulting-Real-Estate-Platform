@@ -108,7 +108,7 @@ const ContactPage = () => {
         </div>
       </section>
 
-      <section className="px-6 py-12">
+      <section id="contact-info" className="px-6 py-12">
         <div className="max-w-7xl mx-auto">
           <div className="glass border border-white/10 rounded-2xl p-8 md:p-10 backdrop-blur-xl space-y-8">
             <div>
@@ -160,7 +160,7 @@ const ContactPage = () => {
       </section>
 
       {/* Contact Info Cards */}
-      <section className="px-6 py-12">
+      <section id="info" className="px-6 py-12">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {contactInfo.map((info, index) => (
@@ -190,7 +190,7 @@ const ContactPage = () => {
       </section>
 
       {/* Contact Form & Map */}
-      <section className="px-6 py-12">
+      <section id="contact-form" className="px-6 py-12">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Form */}
