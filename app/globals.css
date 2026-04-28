@@ -49,7 +49,7 @@ body {
 /* Smooth scroll behavior */
 html {
   scroll-behavior: smooth;
-  scroll-snap-type: y mandatory;
+  scroll-snap-type: y proximity;
 }
 
 /* Scroll snap sections */
