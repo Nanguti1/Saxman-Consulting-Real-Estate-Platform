@@ -58,7 +58,7 @@ const PropertiesPage = () => {
             "linear-gradient(rgba(255, 255, 255, 0.88), rgba(239, 246, 255, 0.88)), url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1920&q=80')"
         }}
       >
-        <div className="mx-auto max-w-screen-2xl py-10">
+        <div className="mx-auto flex h-[140px] max-w-screen-2xl items-end pb-7">
           <motion.h1
             className="text-2xl md:text-3xl font-bold text-slate-900"
             style={{ fontFamily: 'Syne, sans-serif' }}
