@@ -69,15 +69,15 @@ const ContactPage = () => {
     <div className="min-h-screen bg-blue-950 text-blue-100">
       {/* Hero Section */}
       <section
-        className="border-b border-white/10 bg-cover bg-center px-6 py-8"
+        className="border-b border-slate-200 bg-cover bg-center px-6"
         style={{
           backgroundImage:
-            "linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.9)), url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1920&q=80')"
+            "linear-gradient(rgba(255, 255, 255, 0.88), rgba(239, 246, 255, 0.88)), url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1920&q=80')"
         }}
       >
-        <div className="mx-auto max-w-7xl">
+        <div className="mx-auto max-w-screen-2xl py-10">
           <motion.h1
-            className="text-2xl md:text-3xl font-bold tracking-tight text-white"
+            className="text-2xl md:text-3xl font-bold text-slate-900"
             style={{ fontFamily: 'Syne, sans-serif' }}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
