@@ -66,28 +66,33 @@ const PropertiesPage = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-blue-900/85 to-emerald-900/85" />
         </div>
         
-        <div className="relative max-w-7xl mx-auto min-h-[300px] flex items-center justify-center text-center">
-          <motion.h1
-            className="text-4xl md:text-5xl font-bold mb-4 tracking-tight"
-            style={{ fontFamily: 'Syne, sans-serif' }}
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
+        <div className="relative max-w-7xl mx-auto min-h-[300px] grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
           >
-            <span className="text-white">
-              Exclusive
-              <span className="block text-3xl md:text-4xl mt-2 font-light text-blue-200">
-                Property Portfolio
+            <h1
+              className="text-4xl md:text-5xl font-bold mb-4 tracking-tight"
+              style={{ fontFamily: 'Syne, sans-serif' }}
+            >
+              <span className="text-white">
+                Exclusive
+                <span className="block text-3xl md:text-4xl mt-2 font-light text-blue-200">
+                  Property Portfolio
+                </span>
               </span>
-            </span>
-          </motion.h1>
-          <motion.p
-            className="text-lg text-blue-100/90 max-w-xl mx-auto leading-relaxed"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
+            </h1>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
           >
-            Curated luxury residences and investment opportunities in Kenya's most prestigious locations
-          </motion.p>
+            <p className="text-lg text-blue-100/90 leading-relaxed">
+              Curated luxury residences and investment opportunities in Kenya's most prestigious locations
+            </p>
+          </motion.div>
         </div>
       </section>
 
