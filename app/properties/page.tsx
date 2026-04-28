@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { Property } from '@/types';
 import PropertyCard from '@/components/PropertyCard';
 import { fetchProperties } from '@/lib/api';
-import { Search, Filter, ArrowRight } from 'lucide-react';
+import { Search, Filter } from 'lucide-react';
 
 const PropertiesPage = () => {
   const [properties, setProperties] = useState<Property[]>([]);
@@ -51,40 +51,22 @@ const PropertiesPage = () => {
   return (
     <div className="min-h-screen bg-blue-950 text-blue-100">
       {/* Hero Section */}
-      <section className="relative py-16 px-6 overflow-hidden min-h-[300px]">
-        {/* Background Image */}
-        <div className="absolute inset-0">
-          <img 
-            src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1920&q=80"
-            alt="Properties Background"
-            className="w-full h-full object-cover"
-          />
-          {/* Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-900/85 to-emerald-900/85" />
-        </div>
-        
-        <div className="relative max-w-7xl mx-auto min-h-[300px] flex items-center justify-center text-center">
+      <section
+        className="border-b border-white/10 bg-cover bg-center px-6 py-8"
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.9)), url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1920&q=80')"
+        }}
+      >
+        <div className="mx-auto max-w-7xl">
           <motion.h1
-            className="text-4xl md:text-5xl font-bold mb-4 tracking-tight"
+            className="text-2xl md:text-3xl font-bold tracking-tight text-white"
             style={{ fontFamily: 'Syne, sans-serif' }}
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
           >
-            <span className="text-white">
-              Exclusive
-              <span className="block text-3xl md:text-4xl mt-2 font-light text-blue-200">
-                Property Portfolio
-              </span>
-            </span>
+            Property Portfolio
           </motion.h1>
-          <motion.p
-            className="text-lg text-blue-100/90 max-w-xl mx-auto leading-relaxed"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-          >
-            Curated luxury residences and investment opportunities in Kenya's most prestigious locations
-          </motion.p>
         </div>
       </section>
 
