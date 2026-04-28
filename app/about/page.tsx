@@ -77,6 +77,7 @@ const AboutPage = () => {
     <div className="min-h-screen bg-blue-950 text-blue-100">
       {/* Hero Section */}
       <section
+        id="about"
         className="border-b border-slate-200 bg-cover bg-center px-6"
         style={{
           backgroundImage:
