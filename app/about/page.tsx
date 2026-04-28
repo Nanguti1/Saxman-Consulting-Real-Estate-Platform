@@ -76,40 +76,22 @@ const AboutPage = () => {
   return (
     <div className="min-h-screen bg-blue-950 text-blue-100">
       {/* Hero Section */}
-      <section className="relative py-16 px-6 overflow-hidden min-h-[300px]">
-        {/* Background Image */}
-        <div className="absolute inset-0">
-          <img 
-            src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=1920&q=80"
-            alt="About Background"
-            className="w-full h-full object-cover"
-          />
-          {/* Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-900/85 to-emerald-900/85" />
-        </div>
-        
-        <div className="relative max-w-7xl mx-auto min-h-[300px] flex items-center justify-center text-center">
+      <section
+        className="border-b border-slate-200 bg-cover bg-center px-6"
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(255, 255, 255, 0.88), rgba(239, 246, 255, 0.88)), url('https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=1920&q=80')"
+        }}
+      >
+        <div className="mx-auto flex h-[140px] max-w-screen-2xl items-end pb-7">
           <motion.h1
-            className="text-5xl md:text-6xl font-bold mb-4 tracking-tight"
+            className="text-2xl md:text-3xl font-bold text-slate-900"
             style={{ fontFamily: 'Syne, sans-serif' }}
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
           >
-            <span className="text-white">
-              Visionary
-              <span className="block text-3xl md:text-4xl mt-2 font-light text-blue-200">
-                Real Estate Excellence
-              </span>
-            </span>
+            About Us
           </motion.h1>
-          <motion.p
-            className="text-lg text-blue-100/90 max-w-xl mx-auto leading-relaxed"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-          >
-            Pioneering the future of luxury real estate with innovation, integrity, and unparalleled client experience
-          </motion.p>
         </div>
       </section>
 
@@ -138,74 +120,64 @@ const AboutPage = () => {
         </div>
       </section>
 
-      {/* Our Story */}
+      {/* About Content */}
       <section className="px-6 py-16">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="glass border border-white/10 rounded-2xl p-8 md:p-10 backdrop-blur-xl space-y-8">
             <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
             >
-              <h2 
-                className="text-4xl font-bold mb-6"
-                style={{ fontFamily: 'Syne, sans-serif' }}
-              >
-                <span className="bg-gradient-to-r from-blue-400 to-emerald-400 bg-clip-text text-transparent">
-                  Our Story
-                </span>
+              <p className="text-sm uppercase tracking-widest text-blue-300 mb-2">About Us: Saxman Consulting</p>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white" style={{ fontFamily: 'Syne, sans-serif' }}>
+                Your Trusted Real Estate Partner in Nairobi, Kenya
               </h2>
-              <p className="text-blue-200 leading-relaxed mb-6">
-                Saxman Consulting is a premier real estate agency in Nairobi, Kenya, specializing in high-end residential and commercial real estate. We provide full-range real estate services including property sales, rentals, land investment, leasing, and property management. Our expertise covers Nairobi's most prestigious suburbs including Kileleshwa, Lavington, Kilimani, Westlands, and Riverside.
-              </p>
-              <p className="text-blue-200 leading-relaxed mb-6">
-                Our property portfolio ranges from apartments starting at 10M KSH for sale to high-end rentals up to 780K KSH. We are committed to delivering exceptional property solutions with integrity, expertise, and unwavering dedication to client success.
-              </p>
               <p className="text-blue-200 leading-relaxed">
-                Located at 104 Riverside Dr, Nairobi, we serve clients with professional excellence, ensuring that every property transaction is handled with the utmost care and attention to detail.
+                Saxman Consulting is a premier, fast-growing property provider dedicated to delivering high-quality real estate solutions across Kenya. Based in the heart of the capital at 104 Riverside Drive, we bridge the gap between property owners, buyers, and investors by offering transparent, reliable, and customer-centric services.
               </p>
             </motion.div>
-            
+
             <motion.div
-              className="relative"
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
             >
-              <div className="glass border border-white/10 rounded-2xl p-8 backdrop-blur-xl">
-                <div className="space-y-6">
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-blue-500/20 rounded-full flex items-center justify-center flex-shrink-0">
-                      <Building className="w-6 h-6 text-blue-400" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold mb-2">Market Leadership</h3>
-                      <p className="text-blue-300 text-sm">Recognized as industry leaders in Kenyan real estate</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-blue-500/20 rounded-full flex items-center justify-center flex-shrink-0">
-                      <Users className="w-6 h-6 text-blue-400" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold mb-2">Client Focus</h3>
-                      <p className="text-blue-300 text-sm">Every client receives personalized attention and tailored solutions</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-blue-500/20 rounded-full flex items-center justify-center flex-shrink-0">
-                      <TrendingUp className="w-6 h-6 text-blue-400" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold mb-2">Growth & Innovation</h3>
-                      <p className="text-blue-300 text-sm">Continuously evolving to meet market demands and client needs</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <h3 className="text-2xl font-semibold text-white mb-3">Our Mission &amp; Vision</h3>
+              <p className="text-blue-200 leading-relaxed">
+                Our mission is to simplify the real estate journey for both individuals and businesses. Whether you are looking for your dream home or seeking to maximize the value of your commercial assets, we provide the market insights and expertise needed to make informed decisions. We pride ourselves on being one of the most ethical and professional agencies in the Nairobi market.
+              </p>
             </motion.div>
+
+            <div>
+              <h3 className="text-2xl font-semibold text-white mb-3">Comprehensive Property Services</h3>
+              <ul className="space-y-2 text-blue-200 list-disc list-inside">
+                <li><strong>Property Sales &amp; Rentals:</strong> A diverse portfolio featuring modern apartments, luxury houses, and prime commercial spaces.</li>
+                <li><strong>Land Investment:</strong> Expert guidance on acquiring land for residential or commercial development.</li>
+                <li><strong>Property Management:</strong> Reliable management services to help owners maximize ROI and maintain property value.</li>
+                <li><strong>Market Consulting:</strong> Strategic advice on property trends and investment opportunities in Nairobi&apos;s high-growth zones.</li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="text-2xl font-semibold text-white mb-3">Primary Areas of Operation</h3>
+              <p className="text-blue-200 mb-3">
+                For local SEO, we focus on Nairobi&apos;s most sought-after neighborhoods, ensuring our clients have access to the best listings in:
+              </p>
+              <ul className="space-y-2 text-blue-200 list-disc list-inside">
+                <li>Westlands &amp; Parklands</li>
+                <li>Riverside &amp; Lavington</li>
+                <li>Kilimani &amp; Kileleshwa</li>
+                <li>Loresho &amp; Lower Kabete</li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="text-2xl font-semibold text-white mb-3">Why Choose Saxman Consulting?</h3>
+              <p className="text-blue-200 leading-relaxed">
+                With over 220 properties listed in the last year alone, ranging from 10M KSH to 750M KSH, our reach and experience are unmatched. We leverage deep local knowledge to ensure our clients find the right fit, every time.
+              </p>
+            </div>
           </div>
         </div>
       </section>
