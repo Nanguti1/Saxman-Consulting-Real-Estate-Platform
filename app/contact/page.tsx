@@ -9,13 +9,12 @@ const ContactPage = () => {
     name: '',
     email: '',
     phone: '',
-    subject: '',
     message: ''
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
@@ -34,7 +33,6 @@ const ContactPage = () => {
       name: '',
       email: '',
       phone: '',
-      subject: '',
       message: ''
     });
     setIsSubmitting(false);
@@ -50,19 +48,19 @@ const ContactPage = () => {
     {
       icon: Mail,
       title: 'Email',
-      details: ['info@saxmanconsulting.co.ke'],
+      details: ['saxmangroup@gmail.com'],
       action: 'Send email'
     },
     {
       icon: MapPin,
       title: 'Office',
-      details: ['104 Riverside Dr, Nairobi', 'Kenya'],
+      details: ['104 Riverside Drive, Nairobi, Kenya'],
       action: 'Get directions'
     },
     {
       icon: Clock,
       title: 'Office Hours',
-      details: ['Mon - Fri: 7:30 AM - 6:30 PM', 'Sat: 9:00 AM - 2:00 PM'],
+      details: ['Mon - Fri: 8:00 AM - 5:30 PM', 'Sat: 9:00 AM - 2:00 PM', 'Sunday: Closed'],
       action: 'Schedule visit'
     }
   ];
@@ -70,40 +68,73 @@ const ContactPage = () => {
   return (
     <div className="min-h-screen bg-blue-950 text-blue-100">
       {/* Hero Section */}
-      <section className="relative py-16 px-6 overflow-hidden min-h-[300px]">
-        {/* Background Image */}
-        <div className="absolute inset-0">
-          <img 
-            src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1920&q=80"
-            alt="Contact Background"
-            className="w-full h-full object-cover"
-          />
-          {/* Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-900/85 to-emerald-900/85" />
-        </div>
-        
-        <div className="relative max-w-7xl mx-auto min-h-[300px] flex items-center justify-center text-center">
+      <section
+        className="border-b border-slate-200 bg-cover bg-center px-6"
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(255, 255, 255, 0.88), rgba(239, 246, 255, 0.88)), url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1920&q=80')"
+        }}
+      >
+        <div className="mx-auto max-w-screen-2xl py-10">
           <motion.h1
-            className="text-5xl md:text-6xl font-bold mb-4 tracking-tight"
+            className="text-2xl md:text-3xl font-bold text-slate-900"
             style={{ fontFamily: 'Syne, sans-serif' }}
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
           >
-            <span className="text-white">
-              Connect
-              <span className="block text-3xl md:text-4xl mt-2 font-light text-blue-200">
-                With Excellence
-              </span>
-            </span>
+            Contact Us
           </motion.h1>
-          <motion.p
-            className="text-lg text-blue-100/90 max-w-xl mx-auto leading-relaxed"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-          >
-            Begin your journey to exceptional real estate solutions with our expert team
-          </motion.p>
+        </div>
+      </section>
+
+      <section className="px-6 py-12">
+        <div className="max-w-7xl mx-auto">
+          <div className="glass border border-white/10 rounded-2xl p-8 md:p-10 backdrop-blur-xl space-y-8">
+            <div>
+              <p className="text-sm uppercase tracking-widest text-blue-300 mb-2">Contact Us</p>
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4" style={{ fontFamily: 'Syne, sans-serif' }}>
+                Get in Touch with Saxman Consulting
+              </h2>
+              <p className="text-blue-200 leading-relaxed">
+                Whether you&apos;re looking to buy, rent, or manage a property, our team is ready to assist you. Visit our office or reach out via the details below:
+              </p>
+            </div>
+
+            <div className="space-y-2 text-blue-200">
+              <p><strong>Physical Address:</strong> 104 Riverside Drive, Nairobi, Kenya.</p>
+              <p><strong>Phone Number:</strong> +254 722 177343.</p>
+              <p><strong>Email Address:</strong> saxmangroup@gmail.com.</p>
+              <p><strong>Official Website:</strong> www.saxmanconsulting.co.ke.</p>
+            </div>
+
+            <div>
+              <h3 className="text-2xl font-semibold text-white mb-3">Office Operating Hours</h3>
+              <ul className="space-y-2 text-blue-200 list-disc list-inside">
+                <li>Monday – Friday: 8:00 AM – 5:30 PM</li>
+                <li>Saturday: 9:00 AM – 2:00 PM</li>
+                <li>Sunday: Closed</li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="text-2xl font-semibold text-white mb-3">Connect With Us Online</h3>
+              <p className="text-blue-200 mb-3">Follow us for the latest property listings and market updates:</p>
+              <ul className="space-y-2 text-blue-200 list-disc list-inside">
+                <li>
+                  Facebook:{' '}
+                  <a href="https://web.facebook.com/saxmanconsulting/" target="_blank" rel="noreferrer" className="text-blue-300 hover:text-blue-200 underline">
+                    Saxman Consulting Nairobi
+                  </a>
+                </li>
+                <li>
+                  BuyRentKenya:{' '}
+                  <a href="https://www.buyrentkenya.com/estate-agent/saxman-group" target="_blank" rel="noreferrer" className="text-blue-300 hover:text-blue-200 underline">
+                    View Our Latest Listings
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -196,24 +227,6 @@ const ContactPage = () => {
                       className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-blue-300/50 focus:outline-none focus:border-blue-400 transition-colors"
                       placeholder="+254 700 123 456"
                     />
-                  </div>
-
-                  <div>
-                    <label className="block text-blue-300 mb-2">Subject *</label>
-                    <select
-                      name="subject"
-                      value={formData.subject}
-                      onChange={handleInputChange}
-                      required
-                      className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white focus:outline-none focus:border-blue-400 transition-colors"
-                    >
-                      <option value="">Select a subject</option>
-                      <option value="property-inquiry">Property Inquiry</option>
-                      <option value="schedule-viewing">Schedule Viewing</option>
-                      <option value="general-question">General Question</option>
-                      <option value="partnership">Partnership</option>
-                      <option value="feedback">Feedback</option>
-                    </select>
                   </div>
 
                   <div>
