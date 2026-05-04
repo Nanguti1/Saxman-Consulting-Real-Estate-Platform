@@ -107,7 +107,7 @@ const CTA = () => {
           </div>
           <div className="text-blue-100">
             <div className="text-sm text-blue-300/55 font-light mb-0.5">Call Us</div>
-            <div className="font-semibold">+254 700 123 456</div>
+            <div className="font-semibold">+254 722 177343</div>
           </div>
         </div>
 
@@ -117,7 +117,7 @@ const CTA = () => {
           </div>
           <div className="text-blue-100">
             <div className="text-sm text-blue-300/55 font-light mb-0.5">Email Us</div>
-            <div className="font-semibold">hello@saxmanconsulting.co.ke</div>
+            <div className="font-semibold">info@saxmanconsulting.co.ke</div>
           </div>
         </div>
 
@@ -127,7 +127,7 @@ const CTA = () => {
           </div>
           <div className="text-blue-100">
             <div className="text-sm text-blue-300/55 font-light mb-0.5">Visit Us</div>
-            <div className="font-semibold">Upper Hill, Nairobi, Kenya</div>
+            <div className="font-semibold">104 Riverside Dr, Nairobi, Kenya</div>
           </div>
         </div>
 
@@ -137,7 +137,7 @@ const CTA = () => {
           </div>
           <div className="text-blue-100">
             <div className="text-sm text-blue-300/55 font-light mb-0.5">Hours</div>
-            <div className="font-semibold">Mon–Sat: 8am – 6pm EAT</div>
+            <div className="font-semibold">Mon–Fri: 8:00 AM – 5:30 PM</div>
           </div>
         </div>
       </div>
